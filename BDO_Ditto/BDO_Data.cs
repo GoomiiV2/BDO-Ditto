@@ -42,8 +42,7 @@
         public static BDO_DataBlock EyeMakeUp           =   new BDO_DataBlock(108, 24);
         public static BDO_DataBlock EyeLine             =   new BDO_DataBlock(140, 8);
         public static BDO_DataBlock Eyes                =   new BDO_DataBlock(148, 40);
-        public static BDO_DataBlock FaceShape1          =   new BDO_DataBlock(228, 224);
-        public static BDO_DataBlock FaceShape2          =   new BDO_DataBlock(460, 152);
+        public static BDO_DataBlock FaceShape           =   new BDO_DataBlock(220, 392);
         public static BDO_DataBlock BodyShape           =   new BDO_DataBlock(604, 96);
         public static BDO_DataBlock StandByExpression   =   new BDO_DataBlock(884, 8);
         public static BDO_DataBlock Voice               =   new BDO_DataBlock(892, 8);

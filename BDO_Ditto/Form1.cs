@@ -93,28 +93,25 @@ namespace BDO_Ditto
         {
             List<BDO_DataBlock> setionsToCopy = new List<BDO_DataBlock>();
 
+            if (Cb_HairAndFace.Checked)
+                setionsToCopy.Add(BDO.StaticData.HairAndFace);
+            if (Cb_HairColor.Checked)
+                setionsToCopy.Add(BDO.StaticData.HairColors);
+            if (Cb_Skin.Checked)
+                setionsToCopy.Add(BDO.StaticData.Skin);
+            if (Cb_FaceShape.Checked)
+                setionsToCopy.Add(BDO.StaticData.FaceShape);
+            if (Cb_StandbyExpression.Checked)
+                setionsToCopy.Add(BDO.StaticData.StandByExpression);
             if (Cb_Eyes.Checked)
                 setionsToCopy.Add(BDO.StaticData.Eyes);
-            else if (Cb_HairColor.Checked)
-                setionsToCopy.Add(BDO.StaticData.HairColors);
-            else if (Cb_Skin.Checked)
-                setionsToCopy.Add(BDO.StaticData.Skin);
-            else if (Cb_FaceShape.Checked)
-            {
-                setionsToCopy.Add(BDO.StaticData.FaceShape1);
-                setionsToCopy.Add(BDO.StaticData.FaceShape2);
-            }
-            else if (Cb_StandbyExpression.Checked)
-                setionsToCopy.Add(BDO.StaticData.StandByExpression);
-            else if (Cb_Eyes.Checked)
-                setionsToCopy.Add(BDO.StaticData.Eyes);
-            else if (Cb_EyeMakeup.Checked)
+            if (Cb_EyeMakeup.Checked)
                 setionsToCopy.Add(BDO.StaticData.EyeMakeUp);
-            else if (Cb_EyeLine.Checked)
+            if (Cb_EyeLine.Checked)
                 setionsToCopy.Add(BDO.StaticData.EyeLine);
-            else if (Cb_BodyShape.Checked)
+            if (Cb_BodyShape.Checked)
                 setionsToCopy.Add(BDO.StaticData.BodyShape);
-            else if (Cb_Voice.Checked)
+            if (Cb_Voice.Checked)
                 setionsToCopy.Add(BDO.StaticData.Voice);
 
             ApperanceSwaper.CopySectionsToTarget(setionsToCopy);
