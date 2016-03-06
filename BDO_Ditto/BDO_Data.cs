@@ -1,4 +1,6 @@
-﻿namespace BDO_Ditto.BDO
+﻿using System.Collections.Generic;
+
+namespace BDO_Ditto.BDO
 {
     public enum Classes
     {
@@ -35,17 +37,21 @@
         public static BDO_DataBlock GameVersion = new BDO_DataBlock(4, 12);
 
         #region Offsets in the file for certain apperance data
-        public static BDO_DataBlock ClassId             =   new BDO_DataBlock(68, 8);
-        public static BDO_DataBlock HairAndFace         =   new BDO_DataBlock(76, 8);
-        public static BDO_DataBlock HairColors          =   new BDO_DataBlock(92, 8);
-        public static BDO_DataBlock Skin                =   new BDO_DataBlock(100, 8);
-        public static BDO_DataBlock EyeMakeUp           =   new BDO_DataBlock(108, 24);
-        public static BDO_DataBlock EyeLine             =   new BDO_DataBlock(140, 8);
-        public static BDO_DataBlock Eyes                =   new BDO_DataBlock(148, 40);
-        public static BDO_DataBlock FaceShape           =   new BDO_DataBlock(220, 392);
-        public static BDO_DataBlock BodyShape           =   new BDO_DataBlock(604, 96);
-        public static BDO_DataBlock StandByExpression   =   new BDO_DataBlock(884, 8);
-        public static BDO_DataBlock Voice               =   new BDO_DataBlock(892, 8);
+        public static BDO_DataBlock ClassId = new BDO_DataBlock(68, 8);
+
+        public static readonly Dictionary<string, BDO_DataBlock> ApperanceSections = new Dictionary<string, BDO_DataBlock>
+        {
+            { "HairAndFace",        new BDO_DataBlock(76,   8)      },
+            { "HairColors",         new BDO_DataBlock(92,   8)      },
+            { "Skin",               new BDO_DataBlock(100,  8)      },
+            { "EyeMakeup",          new BDO_DataBlock(108,  24)     },
+            { "EyeLine",            new BDO_DataBlock(140,  8)      },
+            { "Eyes",               new BDO_DataBlock(148,  40)     },
+            { "FaceShape",          new BDO_DataBlock(220,  392)    },
+            { "BodyShape",          new BDO_DataBlock(604,  96)     },
+            { "StandbyExpression",  new BDO_DataBlock(884,  8)      },
+            { "Voice",              new BDO_DataBlock(892,  8)      }
+        };
         #endregion
     }
 }

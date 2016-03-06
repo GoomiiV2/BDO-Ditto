@@ -1,6 +1,8 @@
-﻿using System;
+﻿using BDO_Ditto.BDO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -9,6 +11,7 @@ namespace BDO_Ditto
     public partial class MainForm : Form
     {
         private BDO_AppearanceSwaper ApperanceSwaper = new BDO_AppearanceSwaper();
+        private Dictionary<string, BDO_DataBlock> SectionsToCopy = new Dictionary<string, BDO_DataBlock>();
 
         public MainForm()
         {
@@ -91,30 +94,57 @@ namespace BDO_Ditto
 
         private void Btt_CopySections_Click(object sender, EventArgs e)
         {
-            List<BDO_DataBlock> setionsToCopy = new List<BDO_DataBlock>();
-
-            if (Cb_HairAndFace.Checked)
-                setionsToCopy.Add(BDO.StaticData.HairAndFace);
-            if (Cb_HairColor.Checked)
-                setionsToCopy.Add(BDO.StaticData.HairColors);
-            if (Cb_Skin.Checked)
-                setionsToCopy.Add(BDO.StaticData.Skin);
-            if (Cb_FaceShape.Checked)
-                setionsToCopy.Add(BDO.StaticData.FaceShape);
-            if (Cb_StandbyExpression.Checked)
-                setionsToCopy.Add(BDO.StaticData.StandByExpression);
-            if (Cb_Eyes.Checked)
-                setionsToCopy.Add(BDO.StaticData.Eyes);
-            if (Cb_EyeMakeup.Checked)
-                setionsToCopy.Add(BDO.StaticData.EyeMakeUp);
-            if (Cb_EyeLine.Checked)
-                setionsToCopy.Add(BDO.StaticData.EyeLine);
-            if (Cb_BodyShape.Checked)
-                setionsToCopy.Add(BDO.StaticData.BodyShape);
-            if (Cb_Voice.Checked)
-                setionsToCopy.Add(BDO.StaticData.Voice);
-
+            List<BDO_DataBlock> setionsToCopy = new List<BDO_DataBlock>(SectionsToCopy.Values);
+            PrintSectionsToCopy();
             ApperanceSwaper.CopySectionsToTarget(setionsToCopy);
+        }
+
+        // Global handler for selecting what sections to copy
+        private void ApperanceSectionsCheckedHandler(object sender, EventArgs e)
+        {
+            if (sender.GetType() == typeof(CheckBox))
+            {
+                CheckBox cb = (CheckBox)sender;
+                if (cb.Name.Contains("Cb_") || cb.Name.Length > 3)
+                {
+                    string sectionName = cb.Name.Substring(3);
+                    //Debug.WriteLine(string.Format("Checkbox {0} set to {1}. section name: {2}", cb.Name, cb.Checked, sectionName));
+
+                    if (cb.Checked == false && SectionsToCopy.ContainsKey(sectionName))
+                    {
+                        SectionsToCopy.Remove(sectionName);
+                        Debug.WriteLine(string.Format("Removed section {0} from copy list", sectionName));
+                    }
+                    else if (cb.Checked && !SectionsToCopy.ContainsKey(sectionName))
+                    {
+                        if (StaticData.ApperanceSections.ContainsKey(sectionName))
+                        {
+                            SectionsToCopy.Add(sectionName, StaticData.ApperanceSections[sectionName]);
+                            Debug.WriteLine(string.Format("Added section {0} to copy list", sectionName));
+                        }
+                        else
+                        {
+                            Debug.Fail(string.Format("The section ({0}) does not exist in the StaticData.ApperanceSections list D: !!!!!!", sectionName));
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.Fail(string.Format("Checkbox {0} was not prefixed with Cb_ but had the apperance handler assigned D:", cb.Name));
+                }
+            }
+        }
+
+        [Conditional("DEBUG")]
+        private void PrintSectionsToCopy()
+        {
+            Debug.WriteLine(string.Format("Copying {0} sections: ", SectionsToCopy.Count));
+            Debug.WriteLine("-----------------------------------------------------------");
+            foreach (KeyValuePair<string, BDO_DataBlock> kvp in SectionsToCopy)
+            {
+                Debug.WriteLine(string.Format("{0}\t\t {1}\t\t{2}", kvp.Key, kvp.Value.Offset, kvp.Value.Length));
+            }
+            Debug.WriteLine("-----------------------------------------------------------");
         }
     }
 }

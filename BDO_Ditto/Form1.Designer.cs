@@ -35,7 +35,7 @@
             this.Sections = new System.Windows.Forms.GroupBox();
             this.Cb_Voice = new System.Windows.Forms.CheckBox();
             this.Cb_StandbyExpression = new System.Windows.Forms.CheckBox();
-            this.Cb_HairColor = new System.Windows.Forms.CheckBox();
+            this.Cb_HairColors = new System.Windows.Forms.CheckBox();
             this.Cb_BodyShape = new System.Windows.Forms.CheckBox();
             this.Cb_HairAndFace = new System.Windows.Forms.CheckBox();
             this.Cb_FaceShape = new System.Windows.Forms.CheckBox();
@@ -94,7 +94,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Sections.Controls.Add(this.Cb_Voice);
             this.Sections.Controls.Add(this.Cb_StandbyExpression);
-            this.Sections.Controls.Add(this.Cb_HairColor);
+            this.Sections.Controls.Add(this.Cb_HairColors);
             this.Sections.Controls.Add(this.Cb_BodyShape);
             this.Sections.Controls.Add(this.Cb_HairAndFace);
             this.Sections.Controls.Add(this.Cb_FaceShape);
@@ -118,6 +118,7 @@
             this.Cb_Voice.TabIndex = 9;
             this.Cb_Voice.Text = "Voice";
             this.Cb_Voice.UseVisualStyleBackColor = true;
+            this.Cb_Voice.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_StandbyExpression
             // 
@@ -128,16 +129,18 @@
             this.Cb_StandbyExpression.TabIndex = 8;
             this.Cb_StandbyExpression.Text = "Standby Expression";
             this.Cb_StandbyExpression.UseVisualStyleBackColor = true;
+            this.Cb_StandbyExpression.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
-            // Cb_HairColor
+            // Cb_HairColors
             // 
-            this.Cb_HairColor.AutoSize = true;
-            this.Cb_HairColor.Location = new System.Drawing.Point(12, 42);
-            this.Cb_HairColor.Name = "Cb_HairColor";
-            this.Cb_HairColor.Size = new System.Drawing.Size(72, 17);
-            this.Cb_HairColor.TabIndex = 1;
-            this.Cb_HairColor.Text = "Hair Color";
-            this.Cb_HairColor.UseVisualStyleBackColor = true;
+            this.Cb_HairColors.AutoSize = true;
+            this.Cb_HairColors.Location = new System.Drawing.Point(12, 42);
+            this.Cb_HairColors.Name = "Cb_HairColors";
+            this.Cb_HairColors.Size = new System.Drawing.Size(72, 17);
+            this.Cb_HairColors.TabIndex = 1;
+            this.Cb_HairColors.Text = "Hair Color";
+            this.Cb_HairColors.UseVisualStyleBackColor = true;
+            this.Cb_HairColors.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_BodyShape
             // 
@@ -148,6 +151,7 @@
             this.Cb_BodyShape.TabIndex = 7;
             this.Cb_BodyShape.Text = "Body Shape";
             this.Cb_BodyShape.UseVisualStyleBackColor = true;
+            this.Cb_BodyShape.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_HairAndFace
             // 
@@ -156,8 +160,10 @@
             this.Cb_HairAndFace.Name = "Cb_HairAndFace";
             this.Cb_HairAndFace.Size = new System.Drawing.Size(120, 17);
             this.Cb_HairAndFace.TabIndex = 0;
+            this.Cb_HairAndFace.Tag = "HairAndFace";
             this.Cb_HairAndFace.Text = "Hair and Face Type";
             this.Cb_HairAndFace.UseVisualStyleBackColor = true;
+            this.Cb_HairAndFace.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_FaceShape
             // 
@@ -168,6 +174,7 @@
             this.Cb_FaceShape.TabIndex = 6;
             this.Cb_FaceShape.Text = "Face Shape";
             this.Cb_FaceShape.UseVisualStyleBackColor = true;
+            this.Cb_FaceShape.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_EyeMakeup
             // 
@@ -178,6 +185,7 @@
             this.Cb_EyeMakeup.TabIndex = 2;
             this.Cb_EyeMakeup.Text = "Eye Makeup";
             this.Cb_EyeMakeup.UseVisualStyleBackColor = true;
+            this.Cb_EyeMakeup.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_EyeLine
             // 
@@ -188,6 +196,7 @@
             this.Cb_EyeLine.TabIndex = 5;
             this.Cb_EyeLine.Text = "Eye Line";
             this.Cb_EyeLine.UseVisualStyleBackColor = true;
+            this.Cb_EyeLine.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_Eyes
             // 
@@ -198,6 +207,7 @@
             this.Cb_Eyes.TabIndex = 3;
             this.Cb_Eyes.Text = "Eyes";
             this.Cb_Eyes.UseVisualStyleBackColor = true;
+            this.Cb_Eyes.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Cb_Skin
             // 
@@ -208,6 +218,7 @@
             this.Cb_Skin.TabIndex = 4;
             this.Cb_Skin.Text = "Skin";
             this.Cb_Skin.UseVisualStyleBackColor = true;
+            this.Cb_Skin.CheckedChanged += new System.EventHandler(this.ApperanceSectionsCheckedHandler);
             // 
             // Gb_Target
             // 
@@ -303,7 +314,7 @@
         private System.Windows.Forms.CheckBox Cb_Skin;
         private System.Windows.Forms.CheckBox Cb_Eyes;
         private System.Windows.Forms.CheckBox Cb_EyeMakeup;
-        private System.Windows.Forms.CheckBox Cb_HairColor;
+        private System.Windows.Forms.CheckBox Cb_HairColors;
         private System.Windows.Forms.CheckBox Cb_HairAndFace;
     }
 }
