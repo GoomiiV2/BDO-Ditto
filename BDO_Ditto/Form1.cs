@@ -140,9 +140,11 @@ namespace BDO_Ditto
         {
             Debug.WriteLine(string.Format("Copying {0} sections: ", SectionsToCopy.Count));
             Debug.WriteLine("-----------------------------------------------------------");
+            Debug.WriteLine(string.Format("{0,-20} {1,-10} {2,-10}", "Section Name", "Offset", "Length"));
+            Debug.WriteLine("-----------------------------------------------------------");
             foreach (KeyValuePair<string, BDO_DataBlock> kvp in SectionsToCopy)
             {
-                Debug.WriteLine(string.Format("{0}\t\t {1}\t\t{2}", kvp.Key, kvp.Value.Offset, kvp.Value.Length));
+                Debug.WriteLine(string.Format("{0,-20} {1,-10} {2,-10}", kvp.Key, kvp.Value.Offset, kvp.Value.Length));
             }
             Debug.WriteLine("-----------------------------------------------------------");
         }
