@@ -119,43 +119,28 @@ namespace BDO_Ditto
             }
         }
 
-        private Classes GetClassFromData(byte[] data)
+        private string GetClassFromData(byte[] data)
         {
             // Crude
             ulong classId = BitConverter.ToUInt64(data, StaticData.ClassId.Offset);
-            Debug.WriteLine(string.Format("Class ID: {0}", classId));
-
-            switch (classId)
+            string className = "";
+            if (!StaticData.ClassIdLookup.TryGetValue(classId, out className))
             {
-                case StaticData.SorcererClassId:
-                    return Classes.Sorcerer;
-                case StaticData.ValkyrieClassId:
-                    return Classes.Valkyrie;
-                case StaticData.RangerClassId:
-                    return Classes.Ranger;
-                case StaticData.WitchClassId:
-                    return Classes.Witch;
-                case StaticData.TamerClassId:
-                    return Classes.Tamer;
-                case StaticData.WizardClassId:
-                    return Classes.Wizard;
-                case StaticData.WarriorClassId:
-                    return Classes.Warrior;
-                case StaticData.BerserkerClassId:
-                    return Classes.Berserker;
-                default:
-                    return Classes.Unkown;
+                className = "Unkown";
             }
+            Debug.WriteLine(string.Format("Class ID: {0}, Name: {1}", classId, className));
+
+            return className;
         }
 
         public string GetSourceClassStr()
         {
-            return GetClassFromData(SourceApperanceData).ToString();
+            return GetClassFromData(SourceApperanceData);
         }
 
         public string GetTargetClassStr()
         {
-            return GetClassFromData(TargetApperanceData).ToString();
+            return GetClassFromData(TargetApperanceData);
         }
 
         public bool IsSourceAndTragetApperanceLoaded()

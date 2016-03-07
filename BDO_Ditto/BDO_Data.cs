@@ -2,36 +2,22 @@
 
 namespace BDO_Ditto.BDO
 {
-    public enum Classes
-    {
-        Blader,
-        Plum,
-        Kunoichi,
-        Ninja,
-        Ranger,
-        Sorcerer,
-        Tamer,
-        Valkyrie,
-        Warrior,
-        Wizard,
-        Witch,
-        Berserker,
-        Unkown
-    }
-
     public static class StaticData
     {
         public const uint SupportedVersion = 18;
 
         #region Class id hex values
-        public const ulong SorcererClassId  =   1251758517271041305;
-        public const ulong ValkyrieClassId  =   10777537339687380824;
-        public const ulong RangerClassId    =   17145927421228022900;
-        public const ulong WitchClassId     =   10764718972524210919;
-        public const ulong TamerClassId     =   15499404728391803384;
-        public const ulong WizardClassId    =   17759858246325470518;
-        public const ulong WarriorClassId   =   4956354676860611428;
-        public const ulong BerserkerClassId =   9287506164331278002;
+        public static readonly Dictionary<ulong, string> ClassIdLookup = new Dictionary<ulong, string>
+        {
+            { 1251758517271041305,      "Sorcerer"  },
+            { 10777537339687380824,     "Valkyrie"  },
+            { 17145927421228022900,     "Ranger"    },
+            { 10764718972524210919,     "Witch"     },
+            { 15499404728391803384,     "Tamer"     },
+            { 17759858246325470518,     "Wizard"    },
+            { 4956354676860611428,      "Warrior"   },
+            { 9287506164331278002,      "Berserker" }
+        };
         #endregion
 
         public static BDO_DataBlock GameVersion = new BDO_DataBlock(4, 12);
