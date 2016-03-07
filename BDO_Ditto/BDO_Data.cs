@@ -4,7 +4,7 @@ namespace BDO_Ditto.BDO
 {
     public static class StaticData
     {
-        public const uint SupportedVersion = 18;
+        public static readonly List<uint> SuportedVersions = new List<uint> { 17, 18 };
 
         #region Class id hex values
         public static readonly Dictionary<ulong, string> ClassIdLookup = new Dictionary<ulong, string>
@@ -16,15 +16,18 @@ namespace BDO_Ditto.BDO
             { 15499404728391803384,     "Tamer"     },
             { 17759858246325470518,     "Wizard"    },
             { 4956354676860611428,      "Warrior"   },
-            { 9287506164331278002,      "Berserker" }
+            { 9287506164331278002,      "Berserker" },
+            { 7011772489808301336,      "Blader"    }, // Below are new, test em
+            { 10613727790916565293,     "Plum"      },
+            { 17453010291577773289,     "Kunoichi"  },
+            { 10978699858950456037,     "Ninja"     },
         };
         #endregion
 
-        public static BDO_DataBlock GameVersion = new BDO_DataBlock(4, 12);
+        public static BDO_DataBlock GameVersion     = new BDO_DataBlock(4, 12);
+        public static BDO_DataBlock ClassId         = new BDO_DataBlock(68, 8);
 
         #region Offsets in the file for certain apperance data
-        public static BDO_DataBlock ClassId = new BDO_DataBlock(68, 8);
-
         public static readonly Dictionary<string, BDO_DataBlock> ApperanceSections = new Dictionary<string, BDO_DataBlock>
         {
             { "HairAndFace",        new BDO_DataBlock(76,   8)      },

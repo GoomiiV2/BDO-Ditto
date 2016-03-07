@@ -96,13 +96,14 @@ namespace BDO_Ditto
                 {
                     byte[] data = File.ReadAllBytes(path);
                     uint version = BitConverter.ToUInt32(data, 0);
-                    if (version == StaticData.SupportedVersion)
+                    if (StaticData.SuportedVersions.Contains(version))
                     {
                         return data;
                     }
                     else
                     {
-                        MessageBox.Show(string.Format("Error loading Apperance data\nUnsuported version {0}, only version {1} is supported, sorry :<\nTry loading it and resaving it in game.", version, StaticData.SupportedVersion), "Error");
+                        string suportedVersionStr = string.Join(", ", StaticData.SuportedVersions);
+                        MessageBox.Show(string.Format("Error loading Apperance data\nUnsuported version {0}, only versions {1} are supported, sorry :<\nTry loading it and resaving it in game.", version, suportedVersionStr), "Error");
                         return null;
                     }
                 }
