@@ -9,18 +9,19 @@ namespace BDO_Ditto.BDO
         #region Class id hex values
         public static readonly Dictionary<ulong, string> ClassIdLookup = new Dictionary<ulong, string>
         {
-            { 1251758517271041305,      "Sorcerer"  },
-            { 10777537339687380824,     "Valkyrie"  },
-            { 17145927421228022900,     "Ranger"    },
-            { 10764718972524210919,     "Witch"     },
-            { 15499404728391803384,     "Tamer"     },
-            { 17759858246325470518,     "Wizard"    },
-            { 4956354676860611428,      "Warrior"   },
-            { 9287506164331278002,      "Berserker" },
-            { 7011772489808301336,      "Blader"    }, // Below are new, test em
-            { 10613727790916565293,     "Plum"      },
-            { 17453010291577773289,     "Kunoichi"  },
-            { 10978699858950456037,     "Ninja"     },
+            { 1251758517271041305,      "Sorcerer"      },
+            { 10777537339687380824,     "Valkyrie"      },
+            { 17145927421228022900,     "Ranger"        },
+            { 10764718972524210919,     "Witch"         },
+            { 15499404728391803384,     "Tamer"         },
+            { 17759858246325470518,     "Wizard"        },
+            { 4956354676860611428,      "Warrior"       },
+            { 9287506164331278002,      "Berserker"     },
+            { 7011772489808301336,      "Blader"        }, // Below are new, test em
+            { 10613727790916565293,     "Plum"          },
+            { 17453010291577773289,     "Kunoichi"      },
+            { 10978699858950456037,     "Ninja"         },
+            { 7534873226274538481,      "Dark Knight"   }
         };
         #endregion
 
