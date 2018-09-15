@@ -4,7 +4,7 @@ namespace BDO_Ditto.BDO
 {
     public static class StaticData
     {
-        public static readonly List<uint> SuportedVersions = new List<uint> { 17, 18 };
+        public static readonly List<uint> SuportedVersions = new List<uint> { 17, 18, 19 };
 
         #region Class id hex values
         public static readonly Dictionary<ulong, string> ClassIdLookup = new Dictionary<ulong, string>
