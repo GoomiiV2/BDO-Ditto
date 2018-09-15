@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+	<title>Ditto</title>
+	<link rel="stylesheet" href="css/pure-min.css">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/layouts/blog.css">
+    	
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title"><span class="sidebar-backplate">Ditto</span></h1>
+
+            <a href="img/BDO_Ditto.png"><img class="sidebar-img" src="img/BDO_Ditto.png"/></a><br clear="all">
+
+            <h2 class="brand-tagline">
+	            <span class="sidebar-backplate">A tool to help transfer some customization data from one character to another</span>
+	        </h2>
+
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://github.com/GoomiChan/BDO-Ditto/releases">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://github.com/GoomiChan/BDO-Ditto/issues">Issues</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal">
+                    <ul>
+                    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        <h2 class="post-title">What is it?</h2>
+                        <hr>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Ditto is a small tool that allows you to copy sections of a characters appearance from one CustomizationData template to another.</br>
+                            This makes it pretty handy for quickly getting a base down when making a new class.</br>
+                            (Your Mileage May Vary)
+                        </p>
+
+                        <img id="exampleImg" src="img/Example.png" />
+                    </div>
+                </section>
+
+                <section class="post">
+                    <header class="post-header">
+                        <h2 class="post-title">How to use</h2>
+                        <hr>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Usage is pretty simple, just select the template that you wish to copy from as the Source template and then select the template that you want to copy the looks to as the Target template.</br>
+                            (If you just want to copy to a new class then you will need to save out a blank template for that class ingame, select class > save template).</br>
+						</p>
+						<p>
+                            Now it's just a matter of selecting what you want to transfer and clicking on "> Copy Sections to target <".</br>
+                            Now you can load it up ingame to see how it looks, if you are happy with the results and want to copy sections from another file then click "Yes" in the "Commit changes and reload?" dialog.</br>
+                            Otherwise you can select no and then adjsut the sections you want to copy over.</br>
+                            That is it you are done :>
+                        </p>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <header class="post-header">
+                        <h2 class="post-title">FAQ, Troubleshooting</h2>
+                        <hr>
+                    </header>
+
+                    <div class="post-description">
+                    	<div class="faq">
+							<div id="faq-1">
+								<h3 class="faq-heading">
+									The face I copied across to a different class doesn't look exactly the same!
+								</h3>
+								<div class="faq-answer">
+									<p>
+									Sadly due to different classes having different meshes things won't port over perfectly from one class to another, faces especially so.</br>
+									It should still come out pretty close and serve a good base for a few tweaks to get it where you want it.
+									</p>
+								</div>
+							</div>
+
+							<div id="faq-2">
+								<h3 class="faq-heading">
+									Error: "Unsupported version x"
+								</h3>
+								<div class="faq-answer">
+									<p>
+									This tool can only handle a certain version of the template file format so some older versions or ones from clients other than the EU/NA one will give this error.</br>
+									A simple work around for this is to open the template ingame and then resave it out, this should upgrade the version and now you should be able to open it in Ditto.
+									</p>
+								</div>
+							</div>
+
+							<div id="faq-3">
+								<h3 class="faq-heading">
+									Why can't I copy the face type without copying the hair type as well?
+								</h3>
+								<div class="faq-answer">
+									<p>
+									Sadly this is due to how the data is stored in the file, the hair and face types are stored in such a way that I wasn't yet able to figure out how to separate them.</br>
+									Hopefully this isn't that big of an issue.
+									</p>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
